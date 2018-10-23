@@ -1,0 +1,22 @@
+1)
+- helm init
+- helm install stable/nginx-ingress --namespace kube-system --set rbac.create=false
+- kubectl get service -l app=nginx-ingress --namespace kube-system
+
+2)
+- $PUBLICIPID=(az network public-ip list --query "[?ipAddress!=null]|[?contains(ipAddress, '40.74.57.137')].[id]" --output tsv)
+- az network public-ip update --ids $PUBLICIPID --dns-name smarthotel220-apis
+  
+  smarthotel220-apis.westeurope.cloudapp.azure.com
+
+3)
+- helm install stable/cert-manager --set ingressShim.defaultIssuerName=letsencrypt-staging --set ingressShim.defaultIssuerKind=ClusterIssuer --set rbac.create=false --set serviceAccount.create=false
+- kubectl apply -f cluster-issuer.yaml
+- kubectl apply -f certificate.yaml
+- kubectl apply -f ingress.yaml
+
+helm install --name cert-manager2 stable/cert-manager --set ingressShim.defaultIssuerName=letsencrypt-staging2 --set ingressShim.defaultIssuerKind=ClusterIssuer2 --set rbac.create=false --set serviceAccount.create=false
+
+kubectl describe certificate mysh220-cert
+helm ls --all cert-manager
+helm del --purge cert-manager

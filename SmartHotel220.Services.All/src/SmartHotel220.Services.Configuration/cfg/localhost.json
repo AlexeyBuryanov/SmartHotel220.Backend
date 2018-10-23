@@ -1,0 +1,37 @@
+﻿{
+  "urls": {
+    "hotels": "http://localhost:6101/",
+    "bookings": "http://localhost:6100/",
+    "suggestions": "http://localhost:6102/",
+    "tasks": "http://localhost:6104/",
+    "notifications": "http://localhost:6105/",
+    "reviews": "http://localhost:6106/",
+    "discounts": "http://localhost:6107/",
+    "images_base": "https://sh220imgs.blob.core.windows.net/"
+  },
+  "pets_config": {
+    "blobName": "sh220funcappstor",
+    "blobKey": "oPw93nZ0KZZhwObcAK1X3nAR/684q+3kOhe4U/9kaG64RV58flCAHBMhDOKjGn6V2WcY2HAFJ5e7ineqYM1YLg==",
+    "cosmosUri": "https://sh220cosmos.documents.azure.com:443/",
+    "cosmosKey": "lGPtkMHwjCZJIaoD559Kn8mhrdaorTvOEoKTTxPa9jydYe8lIjhfvs5HLhKb3DXsYoCoKV2c5XDVojwKTpK5RQ=="
+  },
+  "tokens": {
+    "bingmaps": "9D6ZuqeGpcfZ9PVYR1BQ~ofsY_N_KDywcNM-Y0Io5aA~AvqaBtSnHxFfX7flAqux2Q6eYSIreLwDxnswabgPlEOXmoEXXt6u1O6In0hqICy8N"
+  },
+  "b2c": {
+    "tenant": "smarthotel220.onmicrosoft.com",
+    "policy": "B2C_1_SignUpInPolicy",
+    "client": "da53c250-8cf8-4a05-a1a9-6a239bf419a1"
+  },
+  "analytics": {
+    "android": "85527c99-5012-409b-b530-d59be7735cde",
+    "uwp": "4053c78f-7fdd-446b-9c84-6c48ccde367b"
+  },
+  "others": {
+    "fallbackMapsLocation": "50.4501,30.5234"
+  },
+  "bot": {
+    "id": "smarthotel220",
+    "FacebookBotId": "smarthotel220"
+  }
+}

@@ -1,0 +1,78 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: suggestions-back
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: suggestions-back
+    spec:
+      containers:
+      - name: suggestions-back
+        image: redis
+        ports:
+        - containerPort: 6379
+          name: redis
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: suggestions-back
+spec:
+  ports:
+  - port: 6379
+  selector:
+    app: suggestions-back
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: suggestions-front
+spec:
+  replicas: 1
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  minReadySeconds: 5 
+  template:
+    metadata:
+      labels:
+        app: suggestions-front
+    spec:
+      containers:
+      - name: suggestions
+        image: smarthotel220/suggestions:latest
+        imagePullPolicy: Always
+        env:
+        - name: ApplicationInsights__InstrumentationKey
+          valueFrom:
+           configMapKeyRef:
+             name: externalcfg
+             key: ApplicationInsights__InstrumentationKey                  
+        - name: PATH_BASE
+          value: /
+        - name: PORT
+          value: "80"
+        - name: NODE_ENV
+          value: production             
+        - name: SUGGESTIONS_DATABASE_URL
+          valueFrom:
+           configMapKeyRef:
+             name: externalcfg
+             key: SUGGESTIONS_DATABASE_URL   
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: suggestions-front
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    app: suggestions-front

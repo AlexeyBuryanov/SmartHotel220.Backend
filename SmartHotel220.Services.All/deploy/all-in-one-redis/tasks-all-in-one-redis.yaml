@@ -1,0 +1,89 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: tasks-back
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: tasks-back
+    spec:
+      containers:
+      - name: tasks-back
+        image: redis
+        ports:
+        - containerPort: 6379
+          name: redis
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tasks-back
+spec:
+  ports:
+  - port: 6379
+    targetPort: 8080
+  selector:
+    app: tasks-back
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: tasks-front
+spec:
+  replicas: 1
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  minReadySeconds: 5 
+  template:
+    metadata:
+      labels:
+        app: tasks-front
+    spec:
+      containers:
+      - name: tasks-front
+        image: smarthotel220/tasks:latest
+        imagePullPolicy: Always
+        env:
+        - name: ApplicationInsights__InstrumentationKey
+          valueFrom:
+           configMapKeyRef:
+             name: externalcfg
+             key: ApplicationInsights__InstrumentationKey                  
+        - name: PORT
+          value: "80"
+        - name: ASPNET_CONFIGURATION
+          value: Development          
+        - name: PATH_BASE
+          value: /      
+        - name: sql_server_url
+          valueFrom:
+           configMapKeyRef:
+             name: externalcfg
+             key: Tasks_sql_server_url
+        - name: sql_user_name
+          valueFrom:
+           configMapKeyRef:
+             name: externalcfg
+             key: Tasks_sql_user_name
+        - name: sql_user_password
+          valueFrom:
+           configMapKeyRef:
+             name: externalcfg
+             key: Tasks_sql_user_password
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tasks-front
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    app: tasks-front

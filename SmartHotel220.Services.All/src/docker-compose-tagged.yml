@@ -1,0 +1,39 @@
+version: '3.4'
+
+services:
+  bookings-api:
+    image: smarthotel220/bookings:latest
+
+  hotels-api:
+    image: smarthotel220/hotels:latest
+
+  suggestions-api:
+    image: smarthotel220/suggestions:latest
+
+  configuration-api:
+    image: smarthotel220/configuration:latest
+
+  tasks-api:
+    image: smarthotel220/tasks:latest
+
+  reviews-api:
+    image: smarthotel220/reviews:latest
+
+  notifications-api:
+    image: smarthotel220/notifications:latest
+
+  discounts-api:
+    image: smarthotel220/discounts:latest
+
+  profiles-api:
+    image: smarthotel220/profiles:latest
+
+
+  sql-data:
+    image: microsoft/mssql-server-linux:2017-GA
+
+  tasks-data:
+    image: postgres:10.1
+
+  reviews-data:
+    image: postgres:10.1

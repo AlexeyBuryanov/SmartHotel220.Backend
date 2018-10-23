@@ -1,0 +1,101 @@
+version: '3.4'
+
+services:
+  bookings-api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Server=sql-data;Database=Bookings;User Id=sa;Password=Aa1234568_
+     #- ConnectionStrings__DefaultConnection=Server=tcp:sh220sql.database.windows.net,1433;Initial Catalog=BookingsDb;Persist Security Info=False;User ID=Alexey;Password=Aa1234568_;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;  
+    ports:
+      - "6100:80"
+      
+  hotels-api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Server=sql-data;Database=Hotels;User Id=sa;Password=Aa1234568_
+     #- ConnectionStrings__DefaultConnection=Server=tcp:sh220sql.database.windows.net,1433;Initial Catalog=HotelsDb;Persist Security Info=False;User ID=Alexey;Password=Aa1234568_;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
+      - discountsvc=http://localhost:6107/
+    ports:
+      - "6101:80"
+
+  suggestions-api:
+    environment:
+      - PORT=80
+      - SUGGESTIONS_DATABASE_URL=mssql://sa:Aa1234568_@sql-data:1433/SuggestionsDb
+     #- SUGGESTIONS_DATABASE_URL=mssql://Alexey:Aa1234568_@sh220sql.database.windows.net:1433/SuggestionsDb
+      - NODE_ENV=docker
+    ports:
+      - "6102:80"
+
+  configuration-api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "6103:80"
+
+  tasks-api:
+    environment:
+      - sql_server_url=jdbc:postgresql://tasks-data:5432/tasksdb
+      - sql_user_name=admin
+      - sql_user_password=Aa1234568_
+     #- sql_server_url=jdbc:postgresql://sh220postgres.postgres.database.azure.com:5432/tasksdb
+     #- sql_user_name=Alexey@sh220postgres
+     #- sql_user_password=Aa1234568_
+      - PATH_BASE=/
+    ports:
+      - "6104:8080"
+
+  notifications-api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "6105:80"  
+
+  reviews-api:
+    environment:
+      - sql_server_url=jdbc:postgresql://reviews-data:5432/reviewsdb
+      - sql_user_name=admin
+      - sql_user_password=Aa1234568_
+     #- sql_server_url=jdbc:postgresql://sh220postgres.postgres.database.azure.com:5432/reviewsdb
+     #- sql_user_name=Alexey@sh220postgres
+     #- sql_user_password=Aa1234568_
+      - PATH_BASE=/
+    ports:
+      - "6106:8080"
+
+  discounts-api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - profilesvc=http://localhost:6108/
+    ports:
+      - "6107:80"
+
+  profiles-api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Server=sql-data;Database=Profiles;User Id=sa;Password=Aa1234568_
+     #- ConnectionStrings__DefaultConnection=Server=tcp:sh220sql.database.windows.net,1433;Initial Catalog=ProfilesDb;Persist Security Info=False;User ID=Alexey;Password=Aa1234568_;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
+    ports:
+      - "6108:80"
+
+  sql-data:
+    environment:
+      - MSSQL_SA_PASSWORD=Aa1234568_
+      - ACCEPT_EULA=Y
+      - MSSQL_PID=Developer
+    ports:
+      - "6433:1433"
+  
+  tasks-data:
+    environment:
+      - POSTGRES_PASSWORD=Aa1234568_
+      - POSTGRES_USER=admin
+      - PGDATA=/pg
+      - POSTGRES_DB=tasksdb
+  
+  reviews-data:
+    environment:
+      - POSTGRES_PASSWORD=Aa1234568_
+      - POSTGRES_USER=admin
+      - PGDATA=/pg
+      - POSTGRES_DB=reviewsdb

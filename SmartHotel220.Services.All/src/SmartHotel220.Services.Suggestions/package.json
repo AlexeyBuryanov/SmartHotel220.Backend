@@ -1,0 +1,28 @@
+﻿{
+  "name": "smart-hotel220.services.suggestions",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "sequelize db:create; sequelize db:migrate && sequelize db:seed:all && node app"
+  },
+  "description": "SmartHotel220.Services.Suggestions",
+  "author": {
+    "name": "Alexey"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.3",
+    "debug": "^2.6.9",
+    "express": "^4.16.3",
+    "geolib": "^2.0.24",
+    "morgan": "^1.9.0",
+    "pug": "^2.0.3",
+    "sequelize": "^4.38.0",
+    "sequelize-cli": "^3.2.0",
+    "serve-favicon": "^2.5.0",
+    "tedious": "^2.6.3"
+  },
+  "engines": {
+    "node": "~6.10.x"
+  }
+}

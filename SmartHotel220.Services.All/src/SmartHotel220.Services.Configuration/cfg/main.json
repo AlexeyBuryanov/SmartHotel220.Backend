@@ -1,0 +1,38 @@
+﻿{
+  "urls": {
+    "hotels": "https://smarthotel220-apis.westeurope.cloudapp.azure.com/hotels-api/",
+    "bookings": "https://smarthotel220-apis.westeurope.cloudapp.azure.com/bookings-api/",
+    "suggestions": "https://smarthotel220-apis.westeurope.cloudapp.azure.com/suggestions-api/",
+    "tasks": "https://smarthotel220-apis.westeurope.cloudapp.azure.com/tasks-api/",
+    "notifications": "https://smarthotel220-apis.westeurope.cloudapp.azure.com/notifications-api/",
+    "reviews": "https://smarthotel220-apis.westeurope.cloudapp.azure.com/reviews-api/",
+    "discounts": "https://smarthotel220-apis.westeurope.cloudapp.azure.com/discounts-api/",
+    "images_base": "https://sh220images.blob.core.windows.net/"
+  },
+  "pets_config": {
+    "blobName": "sh220func",
+    "blobKey": "q2NnORSYjpNavBPaMK0bUZAYKmpWaAH2Dk2CBbdwZ94X2C2HpxFkVGsWjp42juIpdUTUCQV00eqOWeQpIhK5MA==",
+    "cosmosUri": "https://sh220cosmosdb.documents.azure.com:443/",
+    "cosmosKey": "4NWWTKFmNweLfiS49Mt4FZp64alpOHk8iRXeuumm0mRKI41IsBOtEurfuSrYABrnSIFk5Cwg8wyoPBuMSDGamA=="
+  },
+  "tokens": {
+    "bingmaps": "mxkp3S6jkStPKhucwLce~l2wMIFb_beAr9vOTSOv88A~Av9hR9zx1OGnDVbj5uSSc2HYlimWkjuAzvDxsHWYcj-C2-Me0cRQETl4FJ24kLep"
+  },
+  "b2c": {
+    "tenant": "smarthotel220.onmicrosoft.com",
+    "policy": "B2C_1_SignUpInPolicy",
+    "client": "85f57866-2a32-4b87-bf8e-d30636c97916"
+  },
+  "analytics": {
+    "android": "85527c99-5012-409b-b530-d59be7735cde",
+    "uwp": "4053c78f-7fdd-446b-9c84-6c48ccde367b"
+  },
+  "others": {
+    "fallbackMapsLocation": "50.4501,30.5234"
+  },
+  "bot": {
+    "id": "smarthotel220",
+    "FacebookBotId": "smarthotel220",
+	"TelegramBotId": "alexeyburyanov_bot"
+  }
+}

@@ -1,0 +1,34 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: externalcfg
+  labels:
+    app: smarthotel220
+data:
+  Hotels_ConnectionStrings__DefaultConnection: Server=tcp:sh220-sql.database.windows.net,1433;Initial Catalog=HotelsDb;Persist Security Info=False;User ID=Alexey;Password=Aa1234568_;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
+  Bookings_ConnectionStrings__DefaultConnection: Server=tcp:sh220-sql.database.windows.net,1433;Initial Catalog=BookingsDb;Persist Security Info=False;User ID=Alexey;Password=Aa1234568_;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
+  Bookings_b2c__Tenant: smarthotel220.onmicrosoft.com
+  Bookings_b2c__ClientId: 402383f4-2e3e-4549-85bc-ff35432bffe1
+  Bookings_b2c__Audiences: 85f57866-2a32-4b87-bf8e-d30636c97916,402383f4-2e3e-4549-85bc-ff35432bffe1
+  Bookings_b2c__Policy: B2C_1_SignUpInPolicy
+  Hotels_b2c__Tenant: smarthotel220.onmicrosoft.com
+  Hotels_b2c__ClientId: 5be88d50-1034-47f5-87a1-732388acc19d
+  Hotels_b2c__Audiences: 85f57866-2a32-4b87-bf8e-d30636c97916,5be88d50-1034-47f5-87a1-732388acc19d
+  Hotels_b2c__Policy: B2C_1_SignUpInPolicy
+  Hotels_discountsvc: http://smarthotel220-apis.westeurope.cloudapp.azure.com/discounts-api/
+  Hotels_currency__Badge: $
+  Hotels_currency__BaseConversion: "1.0"  
+  Notifications_b2c__Tenant: smarthotel220.onmicrosoft.com
+  Notifications_b2c__ClientId: fecbfcd6-75a8-4ab7-943d-d4fa344c79fb
+  Notifications_b2c__Audiences: 85f57866-2a32-4b87-bf8e-d30636c97916,fecbfcd6-75a8-4ab7-943d-d4fa344c79fb
+  Notifications_b2c__Policy: B2C_1_SignUpInPolicy
+  SUGGESTIONS_DATABASE_URL: mssql://Alexey:Aa1234568_@sh220-sql.database.windows.net:1433/SuggestionsDb
+  Tasks_sql_server_url: jdbc:postgresql://sh220-postgres.postgres.database.azure.com:5432/tasksdb
+  Tasks_sql_user_name: Alexey@sh220-postgres
+  Tasks_sql_user_password: Aa1234568_
+  Reviews_sql_server_url: jdbc:postgresql://sh220-postgres.postgres.database.azure.com:5432/reviewsdb
+  Reviews_sql_user_name: Alexey@sh220-postgres
+  Reviews_sql_user_password: Aa1234568_
+  ApplicationInsights__InstrumentationKey: d241031e-0a06-48b0-bea9-ac3b88b0c6af
+  Discounts_profilesvc: http://smarthotel220-apis.westeurope.cloudapp.azure.com/profiles-api/
+  Profiles_ConnectionStrings__DefaultConnection: Server=tcp:sh220-sql.database.windows.net,1433;Initial Catalog=ProfilesDb;Persist Security Info=False;User ID=Alexey;Password=Aa1234568_;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;

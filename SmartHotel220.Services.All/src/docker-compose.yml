@@ -1,0 +1,65 @@
+version: '3.4'
+
+services:
+  bookings-api:
+    image: smarthotel220/bookings
+    build:
+      context: .
+      dockerfile: SmartHotel220.Services.Bookings/Dockerfile
+
+  hotels-api:
+    image: smarthotel220/hotels
+    build:
+      context: .
+      dockerfile: SmartHotel220.Services.Hotels/Dockerfile
+
+  suggestions-api:
+    image: smarthotel220/suggestions
+    build:
+      context: ./SmartHotel220.Services.Suggestions
+      dockerfile: Dockerfile
+
+  configuration-api:
+    image: smarthotel220/configuration
+    build:
+      context: ./SmartHotel220.Services.Configuration
+      dockerfile: Dockerfile
+
+  tasks-api:
+    image: smarthotel220/tasks
+    build:
+      context: ./SmartHotel220.Services.Tasks
+      dockerfile: Dockerfile
+
+  reviews-api:
+    image: smarthotel220/reviews
+    build:
+      context: ./SmartHotel220.Services.Reviews
+      dockerfile: Dockerfile
+
+  notifications-api:
+    image: smarthotel220/notifications
+    build:
+      context: .
+      dockerfile: SmartHotel220.Services.Notifications/Dockerfile
+
+  discounts-api:
+    image: smarthotel220/discounts
+    build:
+      context: ./SmartHotel220.Services.Discount
+      dockerfile: Dockerfile
+
+  profiles-api:
+    image: smarthotel220/profiles
+    build:
+      context: ./SmartHotel220.Services.Profiles
+      dockerfile: Dockerfile
+
+  sql-data:
+    image: microsoft/mssql-server-linux:2017-GA
+
+  tasks-data:
+    image: postgres:10.1
+
+  reviews-data:
+    image: postgres:10.1

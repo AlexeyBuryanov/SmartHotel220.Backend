@@ -1,0 +1,24 @@
+﻿{
+  "local": {
+    "username": "sa",
+    "password": "Aa1234568_",
+    "database": "suggestionsdb",
+    "host": "localhost",
+    "port": "6433",
+    "dialect": "mssql"
+  },
+  "docker": {
+    "use_env_variable": "SUGGESTIONS_DATABASE_URL",
+    "dialect": "mssql",
+    "dialectOptions": {
+      "encrypt": false
+    }
+  },
+  "production": {
+    "use_env_variable": "SUGGESTIONS_DATABASE_URL",
+    "dialect": "mssql",
+    "dialectOptions": {
+      "encrypt": true
+    }
+  }
+}

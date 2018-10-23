@@ -1,0 +1,9 @@
+{
+    "files.autoSave": "afterDelay",
+    "java.home": "C:\\Program Files\\RedHat\\java-1.8.0-openjdk-1.8.0.171-1",
+    "spring.initializr.defaultLanguage": "Java",
+    "spring-boot.ls.java.home": "C:\\Program Files\\RedHat\\java-1.8.0-openjdk-1.8.0.171-1",
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "java.saveActions.organizeImports": true,
+    "telemetry.enableTelemetry": false
+}
