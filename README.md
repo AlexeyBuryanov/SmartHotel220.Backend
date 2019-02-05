@@ -7,7 +7,7 @@ SmartHotel220 – fictional hotel company, which demonstrates the future of trav
 - **[SmartHotel220.Web](https://github.com/AlexeyBuryanov/SmartHotel220.Web)**
 - **[SmartHotel220.Clients](https://github.com/AlexeyBuryanov/SmartHotel220.Clients)**
 
-# [Database schema](https://drive.google.com/open?id=1YRIYZHDj3tWkw1xlOFuje_iaIX8Adb1k)
+# [Database schema](docs/Схема баз данных SmartHotel220. Бурьянов А.Ю..vsdx)
 
 ### Using
 ASP.NET Core 2.0, Spring Boot, Node.js, Docker, Docker Compose, Kubernetes, MS SQL Server, Swagger UI, Microservices.
